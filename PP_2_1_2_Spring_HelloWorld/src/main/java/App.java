@@ -7,6 +7,19 @@ public class App {
                 new AnnotationConfigApplicationContext(AppConfig.class);
         HelloWorld bean =
                 (HelloWorld) applicationContext.getBean("helloworld");
-        System.out.println(bean.getMessage());
+        HelloWorld bean2 =
+                (HelloWorld) applicationContext.getBean("helloworld");
+
+        Cat cat = applicationContext.getBean("cat", Cat.class);
+        Cat cat2 = applicationContext.getBean("cat", Cat.class);
+
+        System.out.println(bean);
+        System.out.println(bean2);
+        System.out.println("Variables HelloWorld refer to the same object? " + (bean == bean2));
+
+        System.out.println(cat);
+        System.out.println(cat2);
+        System.out.println("Variables Cat refer to the same object? " + (cat == cat2));
+
     }
 }
